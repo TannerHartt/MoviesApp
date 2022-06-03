@@ -3,6 +3,9 @@
 @import "~primeflex/primeflex.css";
 @import './styles/_colors.css';
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+@import '~primeicons/primeicons.css';
+@import '~primeng/resources/themes/vela-blue/theme.css';
+@import '~primeng/resources/primeng.min.css';
 
 body {
   font-family: "Roboto", sans-serif;
@@ -31,3 +34,7 @@ a {
   direction: ltr;
 }
 
+.container {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
