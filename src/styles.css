@@ -1,7 +1,16 @@
 @import './styles/_init-css.css';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,300;1,500&family=Space+Grotesk:wght@400;500;700&display=swap');
 @import "~primeflex/primeflex.css";
+@import './styles/_colors.css';
 
 body {
   font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: var(--white);
+  background-color: var(--bgColor);
+}
+
+a {
+  text-decoration: none;
+  color: var(--white);
 }
