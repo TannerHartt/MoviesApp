@@ -12,6 +12,8 @@ import { MoviesComponent } from './movies/movies.component';
 import { TvShowsComponent } from './tv-shows/tv-shows.component';
 import { GenresComponent } from './genres/genres.component';
 import { SliderComponent } from './slider/slider.component';
+import { ItemsBannerComponent } from './items-banner/items-banner.component';
+import { ItemComponent } from './item/item.component';
 
 
 const routes: Routes = [
@@ -32,7 +34,9 @@ const routes: Routes = [
     MoviesComponent,
     TvShowsComponent,
     GenresComponent,
-    SliderComponent
+    SliderComponent,
+    ItemsBannerComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,
