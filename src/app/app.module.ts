@@ -14,6 +14,7 @@ import { GenresComponent } from './genres/genres.component';
 import { SliderComponent } from './slider/slider.component';
 import { ItemsBannerComponent } from './items-banner/items-banner.component';
 import { ItemComponent } from './item/item.component';
+import { PaginatorModule } from "primeng/paginator";
 
 
 const routes: Routes = [
@@ -42,7 +43,8 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    PaginatorModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
