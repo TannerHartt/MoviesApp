@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from "../services/movies.service";
+import { Movie } from "../../models/movie";
 
 @Component({
   selector: 'app-home-page',
@@ -8,17 +9,51 @@ import { MoviesService } from "../services/movies.service";
 })
 export class HomePageComponent implements OnInit {
 
-  movies:any = [];
+  movies: any = [];
+  popularMovies: Movie[] = [];
+  upcomingMovies: Movie[] = [];
+  topRatedMovies: Movie[] = [];
+  nowPlayingMovies: Movie[] =[];
+  latestMovies: Movie[] = [];
 
   constructor(private moviesService: MoviesService) { }
 
   ngOnInit(): void {
-    this.gettingMovies();
+    this.getPopularMovies();
+    this.getTopRatedMovies();
+    this.getUpcomingMovies();
+    this.getNowPlayingMovies();
+    this.getLatestMovies();
   }
 
-  gettingMovies() {
-    this.moviesService.getMovies().subscribe((response: any) => {
-      this.movies = response.results;
+
+  getPopularMovies() {
+    this.moviesService.getMovies('popular').subscribe((movies) => {
+      this.popularMovies = movies;
+    });
+  }
+
+  getUpcomingMovies() {
+    this.moviesService.getMovies('upcoming').subscribe((movies) => {
+      this.upcomingMovies = movies;
+    });
+  }
+
+  getTopRatedMovies() {
+    this.moviesService.getMovies('top_rated').subscribe((movies) => {
+      this.topRatedMovies = movies;
+    });
+  }
+
+  getNowPlayingMovies() {
+    this.moviesService.getMovies('now_playing').subscribe((movies) => {
+      this.nowPlayingMovies = movies;
+    });
+  }
+
+  getLatestMovies() {
+    this.moviesService.getMovies('latest').subscribe((movies) => {
+      this.latestMovies = movies;
     });
   }
 
