@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from "@angular/router";
 import { HttpClientModule, HttpClient } from "@angular/common/http";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -11,7 +12,7 @@ import { MoviesComponent } from './movies/movies.component';
 import { TvShowsComponent } from './tv-shows/tv-shows.component';
 import { GenresComponent } from './genres/genres.component';
 import { SliderComponent } from './slider/slider.component';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
