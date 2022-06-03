@@ -10,6 +10,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MoviesComponent } from './movies/movies.component';
 import { TvShowsComponent } from './tv-shows/tv-shows.component';
 import { GenresComponent } from './genres/genres.component';
+import { SliderComponent } from './slider/slider.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -28,7 +29,8 @@ const routes: Routes = [
     HomePageComponent,
     MoviesComponent,
     TvShowsComponent,
-    GenresComponent
+    GenresComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
