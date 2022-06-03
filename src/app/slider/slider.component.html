@@ -1,6 +1,6 @@
 
 <div class="slider" >
-    <div class="slide" *ngFor="let item of items">
+    <div class="slide" *ngFor="let item of items" @fade>
         <div class="slider-bg">
           <img class="movie-img" [src]="'https://image.tmdb.org/t/p/original/' + item.backdrop_path" alt="">
         </div>
