@@ -8,8 +8,9 @@
 
 .slide {
   display: flex;
-  position: relative;
+  position: absolute;
   height: 35rem;
+  width: 100%;
  }
 .slider-bg {
   position: relative;

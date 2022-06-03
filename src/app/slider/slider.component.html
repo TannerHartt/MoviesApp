@@ -1,8 +1,9 @@
 
-<div class="slider" >
-    <div class="slide" *ngFor="let item of items" @fade>
+<div class="slider">
+  <ng-container *ngFor="let item of items; let i = index">
+    <div class="slide" *ngIf="i == currentSlideIndex" @fade>
         <div class="slider-bg">
-          <img class="movie-img" [src]="'https://image.tmdb.org/t/p/original/' + item.backdrop_path" alt="">
+          <img class="movie-img" [src]="imagesSize.large + item.backdrop_path" alt="">
         </div>
         <div class="slider-pane">
           <h2 class="name">{{item.title}}</h2>
@@ -22,4 +23,5 @@
           </div>
         </div>
     </div>
+  </ng-container>
 </div>
