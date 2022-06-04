@@ -12,7 +12,15 @@ export interface Movie {
   title: string,
   video: boolean,
   vote_average: number,
-  vote_count: number
+  vote_count: number,
+  revenue: number,
+  runtime: number,
+  status: string,
+  tagline: string,
+  budget: number,
+  genres: Genre[];
+  belongs_to_collection: boolean,
+  imdb_id: string,
 }
 
 export interface MovieDto {
@@ -20,4 +28,32 @@ export interface MovieDto {
   results: Movie[];
   total_results: number;
   total_pages: number;
+}
+
+export interface Genre {
+  id: number,
+  name: string
+}
+
+export interface MovieVideoDto {
+  id: number,
+  results: MovieVideo[];
+}
+
+export interface MovieVideo {
+  site: string;
+  key: string;
+}
+
+export interface MovieImages {
+  backdrops: {
+    file_path: string;
+  }[];
+}
+
+export interface MovieCredits {
+  cast: {
+    name: string;
+    profile_path: string;
+  }[];
 }
