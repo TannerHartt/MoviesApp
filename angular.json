@@ -102,5 +102,7 @@
       }
     }
   },
-  "defaultProject": "MoviesApp"
+  "cli": {
+    "analytics": "35f27204-78bd-4ef5-b0f9-b71fa2724428"
+  }
 }
