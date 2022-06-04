@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from "@angular/router";
 import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { TabViewModule } from 'primeng/tabview'
+import { PaginatorModule } from "primeng/paginator";
+import { CarouselModule} from "primeng/carousel";
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,7 +17,9 @@ import { GenresComponent } from './genres/genres.component';
 import { SliderComponent } from './slider/slider.component';
 import { ItemsBannerComponent } from './items-banner/items-banner.component';
 import { ItemComponent } from './item/item.component';
-import { PaginatorModule } from "primeng/paginator";
+import { MovieComponent } from './pages/movie/movie.component';
+import { VideoPlayerComponent } from './components/video-player/video-player.component';
+import { ImageModule } from "primeng/image";
 
 
 const routes: Routes = [
@@ -22,8 +27,10 @@ const routes: Routes = [
   { path: 'movies', component: MoviesComponent },
   { path: 'tvshows', component: TvShowsComponent },
   { path: 'genres', component: GenresComponent },
+  { path: 'movie/:id', component: MovieComponent },
 
 
+  // Always keep this route last! It controls any incorrect url inputs and redirects them to the Home Page.
   { path: '**', redirectTo: ''}
 ]
 @NgModule({
@@ -37,14 +44,19 @@ const routes: Routes = [
     GenresComponent,
     SliderComponent,
     ItemsBannerComponent,
-    ItemComponent
+    ItemComponent,
+    MovieComponent,
+    VideoPlayerComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
     BrowserAnimationsModule,
-    PaginatorModule
+    PaginatorModule,
+    TabViewModule,
+    ImageModule,
+    CarouselModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
