@@ -20,6 +20,8 @@ import { ItemsBannerComponent } from './items-banner/items-banner.component';
 import { ItemComponent } from './item/item.component';
 import { MovieComponent } from './pages/movie/movie.component';
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
+import { TvItemComponent } from './tv-item/tv-item.component';
+import { TvShowComponent } from './pages/tv-show/tv-show.component';
 
 
 
@@ -29,6 +31,7 @@ const routes: Routes = [
   { path: 'tvshows', component: TvShowsComponent },
   { path: 'genres', component: GenresComponent },
   { path: 'movie/:id', component: MovieComponent },
+  { path: 'tvshow/:id', component: TvShowComponent },
 
 
   // Always keep this route last! It controls any incorrect url inputs and redirects them to the Home Page.
@@ -47,7 +50,9 @@ const routes: Routes = [
     ItemsBannerComponent,
     ItemComponent,
     MovieComponent,
-    VideoPlayerComponent
+    VideoPlayerComponent,
+    TvItemComponent,
+    TvShowComponent
   ],
   imports: [
     BrowserModule,
