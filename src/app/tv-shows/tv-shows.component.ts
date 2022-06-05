@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {TvShow, TvShowDto} from "../../models/movie";
+import {MoviesService} from "../services/movies.service";
 
 @Component({
   selector: 'app-tv-shows',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TvShowsComponent implements OnInit {
 
-  constructor() { }
+  shows: TvShow[] = [];
+
+
+
+  constructor(private moviesService: MoviesService) { }
 
   ngOnInit(): void {
+    this.getPopularTvShows(1);
   }
 
+  getPopularTvShows(page:number = 1) {
+    this.moviesService.getTvShows(page).subscribe((shows) => {
+      this.shows = shows;
+    });
+  }
+
+  paginate(event: any) {
+    this.getPopularTvShows(event.page + 1);
+  }
 }
