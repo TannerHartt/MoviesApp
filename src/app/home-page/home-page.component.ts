@@ -15,6 +15,7 @@ export class HomePageComponent implements OnInit {
   topRatedMovies: Movie[] = [];
   nowPlayingMovies: Movie[] =[];
   latestMovies: Movie[] = [];
+  recommendedMovies: Movie[] = [];
 
   constructor(private moviesService: MoviesService) { }
 
@@ -24,6 +25,7 @@ export class HomePageComponent implements OnInit {
     this.getUpcomingMovies();
     this.getNowPlayingMovies();
     this.getLatestMovies();
+    this.getRecommendedMovies();
   }
 
 
@@ -52,8 +54,14 @@ export class HomePageComponent implements OnInit {
   }
 
   getLatestMovies() {
-    this.moviesService.getMovies('latest').subscribe((movies) => {
+    this.moviesService.getLateMovies('latest').subscribe((movies) => {
       this.latestMovies = movies;
+    });
+  }
+
+  getRecommendedMovies() {
+    this.moviesService.getMovies('recommendations', 20).subscribe((movies) => {
+      this.recommendedMovies = movies;
     });
   }
 
