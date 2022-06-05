@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import {Movie, MovieCredits, MovieDto, MovieImages, MovieVideoDto} from "../../models/movie";
+import { Movie, MovieCredits, MovieDto, MovieImages, MovieVideoDto } from "../../models/movie";
 import { switchMap, of } from "rxjs";
 
 @Injectable({
@@ -22,6 +22,14 @@ export class MoviesService {
     return this.http.get<MovieDto>(`${this.baseUrl}/movie/${type}?api_key=${this.apiKey}`)
       .pipe(switchMap(res => {
         return of(res.results.slice(0, count));
+      })
+    );
+  }
+  // Method used to get the movies in the "Home" tab.
+  getLateMovies(type: string = '') {
+    return this.http.get<MovieDto>(`${this.baseUrl}/movie/${type}?api_key=${this.apiKey}`)
+      .pipe(switchMap(res => {
+        return of(res.results);
       })
     );
   }
@@ -50,6 +58,10 @@ export class MoviesService {
 
   getMovieCredits(id: string) {
     return this.http.get<MovieCredits>(`${this.baseUrl}/movie/${id}/credits?api_key=${this.apiKey}`);
+  }
+
+  getRecommendedMovies(id: string) {
+    return this.http.get<Movie>(`${this.baseUrl}/movie/${id}/recommendations?api_key=${this.apiKey}`);
   }
 
 }

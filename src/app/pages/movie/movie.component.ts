@@ -24,7 +24,8 @@ export class MovieComponent implements OnInit {
     this.route.params.subscribe(({id}) => {
       this.getMovie(id);
       this.getMovieVideos(id);
-      this.getMovieImages(id)
+      this.getMovieImages(id);
+      this.getCredits(id);
     });
   }
 
@@ -43,13 +44,13 @@ export class MovieComponent implements OnInit {
   getMovieImages(id: string) {
     this.moviesService.getMovieImages(id).subscribe((movieImageData) => {
       this.movieImages = movieImageData;
-    })
+    });
   }
 
-  getMovieCredits(id: string) {
+  getCredits(id: string) {
     this.moviesService.getMovieCredits(id).subscribe((movieCreditsData) => {
         this.movieCredits = movieCreditsData;
-    })
+    });
   }
 
 }
