@@ -5,7 +5,8 @@ import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { TabViewModule } from 'primeng/tabview'
 import { PaginatorModule } from "primeng/paginator";
-import { CarouselModule} from "primeng/carousel";
+import { CarouselModule } from "primeng/carousel";
+import { ImageModule } from "primeng/image";
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -19,7 +20,7 @@ import { ItemsBannerComponent } from './items-banner/items-banner.component';
 import { ItemComponent } from './item/item.component';
 import { MovieComponent } from './pages/movie/movie.component';
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
-import { ImageModule } from "primeng/image";
+
 
 
 const routes: Routes = [
