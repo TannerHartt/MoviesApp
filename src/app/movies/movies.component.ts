@@ -9,22 +9,26 @@ import { Movie } from "../../models/movie";
 })
 export class MoviesComponent implements OnInit {
 
-  movies: Movie[] =[];
+  movies: Movie[] = [];
 
   constructor(private moviesService: MoviesService) { }
 
   ngOnInit(): void {
-    this.getMoviePage(1);
+    this.getMoviePage(1); // Grabs the first page of movies on initialization.
   }
 
-  // Method used to pull all the movies in the movies tab.
-  //
+  // Method used to pull all the movies in the movies tab from the movie service.
   getMoviePage(page: number) {
     this.moviesService.searchMovies(page).subscribe(movies => {
       this.movies = movies;
     })
   }
 
+  /**
+   * Method used to paginate the movies tab. On page change this method is called to make another movie call to the api
+   * and incrementing page by 1 to get the next page of results.
+   * @param event This is a click event that happens on page change.
+   */
   paginate(event: any) {
     this.getMoviePage(event.page + 1);
   }
