@@ -24,7 +24,6 @@ export class HomePageComponent implements OnInit {
     this.getTopRatedMovies();
     this.getUpcomingMovies();
     this.getNowPlayingMovies();
-    this.getLatestMovies();
     this.getRecommendedMovies();
   }
 
@@ -53,11 +52,6 @@ export class HomePageComponent implements OnInit {
     });
   }
 
-  getLatestMovies() {
-    this.moviesService.getLateMovies('latest').subscribe((movies) => {
-      this.latestMovies = movies;
-    });
-  }
 
   getRecommendedMovies() {
     this.moviesService.getMovies('recommendations', 20).subscribe((movies) => {
