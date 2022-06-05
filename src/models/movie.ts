@@ -1,26 +1,27 @@
 export interface Movie {
-  adult: boolean,
-  backdrop_path: string,
-  genre_ids: number[],
-  id: number,
-  original_language: string,
-  original_title: string,
-  overview: string,
-  popularity: number,
-  poster_path: string,
-  release_date: string,
-  title: string,
-  video: boolean,
-  vote_average: number,
-  vote_count: number,
-  revenue: number,
-  runtime: number,
-  status: string,
-  tagline: string,
-  budget: number,
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+  revenue: number;
+  runtime: number;
+  status: string;
+  tagline: string;
+  budget: number;
   genres: Genre[];
-  belongs_to_collection: boolean,
-  imdb_id: string,
+  belongs_to_collection: boolean;
+  imdb_id: string;
+  media_type: string;
 }
 
 export interface MovieDto {
@@ -31,12 +32,12 @@ export interface MovieDto {
 }
 
 export interface Genre {
-  id: number,
-  name: string
+  id: number;
+  name: string;
 }
 
 export interface MovieVideoDto {
-  id: number,
+  id: number;
   results: MovieVideo[];
 }
 
@@ -56,4 +57,9 @@ export interface MovieCredits {
     name: string;
     profile_path: string;
   }[];
+}
+
+export interface MovieRecommendations {
+  page: number;
+  results: Movie[];
 }

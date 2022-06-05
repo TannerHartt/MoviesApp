@@ -17,6 +17,8 @@ export class MoviesComponent implements OnInit {
     this.getMoviePage(1);
   }
 
+  // Method used to pull all the movies in the movies tab.
+  //
   getMoviePage(page: number) {
     this.moviesService.searchMovies(page).subscribe(movies => {
       this.movies = movies;
