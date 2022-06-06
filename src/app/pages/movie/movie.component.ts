@@ -4,6 +4,7 @@ import { MoviesService } from "../../services/movies.service";
 import {Movie, MovieImages, MovieVideo, MovieCredits} from "../../../models/movie";
 import { IMAGES_SIZES } from "../../../constants/images-sizes";
 
+
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
