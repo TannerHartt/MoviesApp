@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Movie } from "../../models/movie";
+import {Movie, TvShow} from "../../models/movie";
 import { animate, state, style, transition, trigger } from "@angular/animations";
 import { IMAGES_SIZES } from "../../constants/images-sizes";
 
@@ -8,7 +8,7 @@ import { IMAGES_SIZES } from "../../constants/images-sizes";
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.css'],
   animations: [
-    trigger('fade', [
+    trigger('fade', [ // creating the animation & naming it fade.
       state('void', style({opacity: 0})),
       transition('void <=> *', [animate('1s')])
     ])
@@ -18,6 +18,7 @@ import { IMAGES_SIZES } from "../../constants/images-sizes";
 export class SliderComponent implements OnInit {
 
   @Input() items: Movie[] = [];
+  @Input() tvItems: TvShow[] =[];
   @Input() isBanner: boolean = false;
   currentSlideIndex: number = 0;
   readonly imagesSize = IMAGES_SIZES;

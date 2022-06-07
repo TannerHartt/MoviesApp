@@ -1,0 +1,29 @@
+.poster {
+  width: 100%;
+}
+
+.overview {
+  line-height: 1.5;
+}
+.stat {
+  display: flex;
+}
+.label {
+  width: 150px;
+  font-weight: bold;
+}
+.value {
+  color: var(--primaryColor);
+}
+
+.actor {
+  padding: 10px;
+}
+.actor img {
+  width: 100%;
+}
+.actor span {
+  display: block;
+  text-align: center;
+  margin: 10px 0;
+}
