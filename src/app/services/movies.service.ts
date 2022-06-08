@@ -7,9 +7,9 @@ import {
   MovieImages,
   MovieRecommendations,
   MovieVideoDto,
-  TvShowDto
 } from "../../models/movie";
 import { switchMap, of } from "rxjs";
+import {GenresDto} from "../../models/genre";
 
 @Injectable({
   providedIn: 'root'
@@ -52,6 +52,25 @@ export class MoviesService {
       );
   }
 
+  getMovieGenres() {
+    return this.http.get<GenresDto>(`${this.baseUrl}/genre/movie/list?api_key=${this.apiKey}`)
+      .pipe(
+        switchMap((res) => {
+          return of(res.genres);
+        })
+      );
+  }
+
+
+  getMoviesByGenre(genreId: string, page: number) {
+    return this.http.get<MovieDto>(`${this.baseUrl}/discover/movie?with_genres=${genreId}&page=${page}&api_key=${this.apiKey}`)
+      .pipe(switchMap((res) => {
+          return of(res.results);
+        })
+      );
+  }
+
+
   getMovieImages(id: string) {
     return this.http.get<MovieImages>(`${this.baseUrl}/movie/${id}/images?api_key=${this.apiKey}`);
   }
@@ -64,12 +83,13 @@ export class MoviesService {
     return this.http.get<MovieRecommendations>(`${this.baseUrl}/movie/${id}/recommendations?api_key=${this.apiKey}`);
   }
 
-  getTvShows(page: number = 1) {
-    return this.http.get<TvShowDto>(`${this.baseUrl}/tv/popular?page=${page}&api_key=${this.apiKey}`)
-      .pipe(switchMap(res => {
+  getSimilarMovies(id: string) {
+    return this.http.get<MovieDto>(`${this.baseUrl}/movie/${id}/similar?api_key=${this.apiKey}`)
+      .pipe(switchMap((res) => {
         return of(res.results);
-      })
-    );
+        })
+      );
   }
+
 
 }
