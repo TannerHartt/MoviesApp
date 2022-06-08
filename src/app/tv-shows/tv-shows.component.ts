@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TvShow, TvShowDto} from "../../models/movie";
-import {MoviesService} from "../services/movies.service";
+import {TvService} from "../services/tv.service";
 
 @Component({
   selector: 'app-tv-shows',
@@ -13,15 +13,16 @@ export class TvShowsComponent implements OnInit {
 
 
 
-  constructor(private moviesService: MoviesService) { }
+  constructor(private tvService: TvService) { }
 
   ngOnInit(): void {
     this.getPopularTvShows(1);
   }
 
   getPopularTvShows(page:number = 1) {
-    this.moviesService.getTvShows(page).subscribe((shows) => {
+    this.tvService.getTvShows(page).subscribe((shows) => {
       this.shows = shows;
+      console.log(shows);
     });
   }
 
