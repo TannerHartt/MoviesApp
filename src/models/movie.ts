@@ -64,6 +64,29 @@ export interface MovieRecommendations {
   results: Movie[];
 }
 
+export interface MovieReviews {
+  id: number;
+  page: number;
+  results: ReviewsDto[];
+  total_pages: number;
+  total_results: number;
+}
+
+export interface ReviewsDto {
+  author: string;
+  author_details: {
+    name: string;
+    username: string;
+    avatar_path: string;
+    rating: number;
+  }[];
+  content: string;
+  created_at: string;
+  id: string;
+  updated_at: string;
+  url: string;
+}
+
 export interface TvImages {
   backdrops: {
     aspect_ratio: number;
