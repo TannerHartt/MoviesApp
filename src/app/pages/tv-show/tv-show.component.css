@@ -1,0 +1,41 @@
+.overview {
+  line-height: 1.5;
+}
+.stat {
+  display: flex;
+}
+.label {
+  width: 150px;
+  font-weight: bold;
+}
+.value {
+  color: var(--primaryColor);
+}
+
+.actor {
+  padding: 10px;
+}
+.actor img {
+  width: 100%;
+}
+.actor span {
+  display: block;
+  text-align: center;
+  margin: 10px 0;
+}
+/* Overriding the libraries for this component only to center the nav menu */
+:host ::ng-deep .p-tabview-nav {
+  justify-content: center;
+}
+
+:host ::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  background: var(--bgColor);
+}
+
+:host ::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  background: var(--bgColor);
+}
+
+.poster {
+  width: 100%;
+}
