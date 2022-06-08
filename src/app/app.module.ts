@@ -14,7 +14,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MoviesComponent } from './movies/movies.component';
 import { TvShowsComponent } from './tv-shows/tv-shows.component';
-import { GenresComponent } from './genres/genres.component';
+import { GenresComponent } from "./pages/genres/genres.component";
 import { SliderComponent } from './slider/slider.component';
 import { ItemsBannerComponent } from './items-banner/items-banner.component';
 import { ItemComponent } from './item/item.component';
@@ -32,6 +32,7 @@ const routes: Routes = [
   { path: 'genres', component: GenresComponent },
   { path: 'movie/:id', component: MovieComponent },
   { path: 'tv-show/:id', component: TvShowComponent },
+  { path: 'movies/genres/:genreId,', component: MoviesComponent },
 
 
   // Always keep this route last! It controls any incorrect url inputs and redirects them to the Home Page.
