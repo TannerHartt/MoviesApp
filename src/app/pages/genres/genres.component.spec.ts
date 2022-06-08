@@ -11,9 +11,7 @@ describe('GenresComponent', () => {
       declarations: [ GenresComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(GenresComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
