@@ -11,56 +11,68 @@
           <p class="overview">{{ show.overview }}</p>
           <div class="stat">
             <div class="label">Release Date: </div>
-            <div class="value">{{ show.first_air_date | date: 'dd.MM.yyyy'}}</div>
+            <div class="value">{{ show.first_air_date | date: 'yyyy.mm.dd'}}</div>
           </div>
           <div class="stat">
             <div class="label">Language: </div>
             <div class="value">{{ show.original_language | uppercase}}</div>
           </div>
-<!--          <div class="stat">-->
-<!--            <div class="label">Revenue: </div>-->
-<!--            <div class="value">{{ movie.revenue | currency}}</div>-->
-<!--          </div>-->
-<!--          <div class="stat">-->
-<!--            <div class="label">Duration: </div>-->
-<!--            <div class="value">{{ movie.runtime }} min </div>-->
-<!--          </div>-->
-<!--          <div class="stat">-->
-<!--            <div class="label">Genres: </div>-->
-<!--            <div class="value">-->
-<!--              <span *ngFor="let genre of show.genre_ids">-->
-<!--                {{ genre.name }}-->
-<!--              </span>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="stat">-->
-<!--            <div class="label">Status: </div>-->
-<!--            <div class="value">{{ movie.status }}</div>-->
-<!--          </div>-->
+          <div class="stat">
+            <div class="label">Current Season: </div>
+            <div class="value">{{ show.last_episode_to_air.season_number }}</div>
+          </div>
+          <div class="stat">
+            <div class="label">No. of Episodes: </div>
+            <div class="value">{{ show.number_of_episodes }} episodes </div>
+          </div>
+          <div class="stat">
+            <div class="label">No. of Seasons: </div>
+            <div class="value">{{ show.number_of_seasons }} seasons </div>
+          </div>
+          <div class="stat">
+            <div class="label">Genres: </div>
+            <div class="value">
+              <span *ngFor="let genre of show.genres">
+                {{ genre.name }}
+              </span>
+            </div>
+          </div>
+          <div class="stat">
+            <div class="label">Status: </div>
+            <div class="value">{{ show.status }}</div>
+          </div>
         </div>
       </div>
     </p-tabPanel>
 
-<!--    <p-tabPanel header="Videos">-->
-<!--      <div class="grid">-->
-<!--        <ng-container *ngFor="let movieVideo of movieVideos">-->
-<!--          <div class="col-12 md:col-4 lg:col-4" >-->
-<!--            <app-video-player [key]="movieVideo.key" [site]="movieVideo.site"></app-video-player>-->
-<!--          </div>-->
-<!--        </ng-container>-->
-<!--      </div>-->
-<!--    </p-tabPanel>-->
+    <p-tabPanel header="Photos">
+      <div class="grid">
+        <ng-container *ngFor="let image of images?.backdrops">
+          <div class="col-12 md:col-4 lg:col-4" >
+            <p-image [src]="imagesSize.large + image.file_path" alt="image" width="100%" [preview]="true"></p-image>
+          </div>
+        </ng-container>
+      </div>
+    </p-tabPanel>
 
-<!--    <p-tabPanel header="Photos">-->
-<!--      <div class="grid">-->
-<!--        <ng-container *ngFor="let movieImage of movieImages?.backdrops">-->
-<!--          <div class="col-12 md:col-4 lg:col-4" >-->
-<!--            <p-image [src]="imagesSize.large + movieImage.file_path" alt="image" width="100%" [preview]="true"></p-image>-->
-<!--          </div>-->
-<!--        </ng-container>-->
-<!--      </div>-->
-<!--    </p-tabPanel>-->
-<!--  </p-tabView>-->
+    <p-tabPanel header="Similar Shows">
+      <div class="grid">
+        <ng-container>
+            <app-items-banner [tvItems]="similarShows"></app-items-banner>
+        </ng-container>
+      </div>
+    </p-tabPanel>
+
+    <p-tabPanel header="Recommendations">
+      <div class="grid">
+        <ng-container *ngFor="let showRecs of recommendations">
+          <div class="col-12 md:col-4 lg:col-4" >
+            <app-tv-item [tvData] = "showRecs"></app-tv-item>
+          </div>
+        </ng-container>
+      </div>
+    </p-tabPanel>
+  </p-tabView>
 
 <!--  <p-carousel *ngIf="movieCredits" [value]="movieCredits.cast" [numVisible]="5">-->
 <!--    <ng-template let-actor pTemplate="item">-->
