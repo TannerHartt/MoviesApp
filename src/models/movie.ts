@@ -64,16 +64,40 @@ export interface MovieRecommendations {
   results: Movie[];
 }
 
+export interface TvImages {
+  backdrops: {
+    aspect_ratio: number;
+    file_path: string;
+    height: number;
+    iso_639_1: boolean;
+    vote_average: number;
+    vote_count: number;
+    width: number;
+  }[];
+
+  id: number;
+
+  posters: {
+    aspect_ratio: number,
+    file_path: string;
+    height: number;
+    iso_639_1: string;
+    vote_average: number;
+    vote_count: number;
+    width: number;
+  }[];
+}
 
 export interface TvShowDto {
   page: number;
   results: TvShow[];
+  total_results: number;
+  total_pages: number;
 }
 
 export interface TvShow {
   backdrop_path: string;
   first_air_date: string;
-  genre_ids: Genre[];
   id: number;
   name: string;
   origin_country: string;
@@ -84,4 +108,59 @@ export interface TvShow {
   poster_path: string;
   vote_average: number;
   vote_count: number;
+  adult: boolean;
+  episode_run_time: number;
+  in_production: boolean;
+  number_of_episodes: number;
+  number_of_seasons: number;
+  last_air_date: string;
+  status: string;
+  tagline: string;
+  genres: Genre[];
+  episode_number: number;
+  season_number: number;
+  last_episode_to_air: {
+    air_date: string;
+    episode_number: number;
+    id: number;
+    name: string;
+    overview: string;
+    runtime: number;
+    season_number: number;
+    still_path: string;
+    vote_average: number;
+    vote_count: number;
+    production_code: string;
+  };
+  next_episode_to_air: {
+    air_date: string;
+    episode_number: number;
+    id: number;
+    name: string;
+    overview:string;
+    production_code: string;
+    runtime: string;
+    season_number: string
+    still_path: string;
+    vote_average: string;
+    vote_count: string;
+  };
+
+  networks: {
+      name: string;
+      id: number;
+      logo_path: string;
+      origin_country: string;
+  };
+  production_companies: {
+      id: number;
+      logo_path: string;
+      name: string;
+      origin_country: string;
+  };
+}
+
+
+export interface TvShowDto {
+
 }
