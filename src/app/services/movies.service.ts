@@ -11,6 +11,7 @@ import {
 import { switchMap, of } from "rxjs";
 import { GenresDto } from "../../models/genre";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -93,6 +94,7 @@ export class MoviesService {
         return of(res.results);
         })
       );
+
   }
 
   getMovieReviews(id: string) {
