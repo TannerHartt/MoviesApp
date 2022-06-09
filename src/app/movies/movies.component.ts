@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from "../services/movies.service";
 import { Movie } from "../../models/movie";
-import {ActivatedRoute} from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { take } from "rxjs";
 
 @Component({
@@ -51,6 +51,6 @@ export class MoviesComponent implements OnInit {
   getMoviesByGenres(genreId: string, page: number) {
     this.moviesService.getMoviesByGenre(genreId, page).subscribe((movies) => {
       this.movies = movies;
-    })
+    });
   }
 }

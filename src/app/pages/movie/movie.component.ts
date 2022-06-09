@@ -80,16 +80,18 @@ export class MovieComponent implements OnInit, OnDestroy {
     });
   }
 
+  // TODO
+  // Create a way to display the reviews in the details tab menu.
   getMovieReviews(id: string) {
     this.moviesService.getMovieReviews(id).subscribe((reviews) => {
       this.movieReviews = reviews;
+      console.log(reviews)
     });
   }
 
   getRecommendedMovies(id: string) {
     this.moviesService.getRecommendedMovies(id).subscribe((movies) => {
       this.recommendedMovies = movies;
-      console.log(movies)
     });
   }
 }

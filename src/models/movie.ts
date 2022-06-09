@@ -74,17 +74,19 @@ export interface MovieReviews {
 
 export interface ReviewsDto {
   author: string;
-  author_details: {
-    name: string;
-    username: string;
-    avatar_path: string;
-    rating: number;
-  }[];
+  author_details: AuthorDto[];
   content: string;
   created_at: string;
   id: string;
   updated_at: string;
   url: string;
+}
+
+export interface AuthorDto {
+  name: string;
+  username: string;
+  avatar_path: string;
+  rating: number;
 }
 
 export interface TvImages {
@@ -174,16 +176,11 @@ export interface TvShow {
       id: number;
       logo_path: string;
       origin_country: string;
-  };
+  }[];
   production_companies: {
       id: number;
       logo_path: string;
       name: string;
       origin_country: string;
-  };
-}
-
-
-export interface TvShowDto {
-
+  }[];
 }
