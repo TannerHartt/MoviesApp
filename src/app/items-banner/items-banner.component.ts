@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Movie } from "../../models/movie";
+import {Movie, TvShow} from "../../models/movie";
 
 @Component({
   selector: 'app-items-banner',
@@ -8,8 +8,9 @@ import { Movie } from "../../models/movie";
 })
 export class ItemsBannerComponent implements OnInit {
 
-  @Input() items: Movie[] =[];
+  @Input() items: Movie[] = [];
   @Input() title: string = '';
+  @Input() tvItems: TvShow[] = [];
   constructor() { }
 
   ngOnInit(): void {

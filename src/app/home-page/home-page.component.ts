@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from "../services/movies.service";
 import { Movie } from "../../models/movie";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-home-page',
@@ -14,17 +15,16 @@ export class HomePageComponent implements OnInit {
   upcomingMovies: Movie[] = [];
   topRatedMovies: Movie[] = [];
   nowPlayingMovies: Movie[] =[];
-  latestMovies: Movie[] = [];
-  recommendedMovies: Movie[] = [];
+  latestMovie: Movie | null = null;
 
-  constructor(private moviesService: MoviesService) { }
+
+  constructor(private moviesService: MoviesService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getPopularMovies();
-    this.getTopRatedMovies();
-    this.getUpcomingMovies();
-    this.getNowPlayingMovies();
-    this.getRecommendedMovies();
+      this.getPopularMovies();
+      this.getTopRatedMovies();
+      this.getUpcomingMovies();
+      this.getNowPlayingMovies();
   }
 
 
@@ -49,13 +49,6 @@ export class HomePageComponent implements OnInit {
   getNowPlayingMovies() {
     this.moviesService.getMovies('now_playing').subscribe((movies) => {
       this.nowPlayingMovies = movies;
-    });
-  }
-
-
-  getRecommendedMovies() {
-    this.moviesService.getMovies('recommendations', 20).subscribe((movies) => {
-      this.recommendedMovies = movies;
     });
   }
 

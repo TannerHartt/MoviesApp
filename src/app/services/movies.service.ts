@@ -5,11 +5,12 @@ import {
   MovieCredits,
   MovieDto,
   MovieImages,
-  MovieRecommendations,
+  MovieRecommendations, MovieReviews,
   MovieVideoDto,
 } from "../../models/movie";
 import { switchMap, of } from "rxjs";
-import {GenresDto} from "../../models/genre";
+import { GenresDto } from "../../models/genre";
+
 
 @Injectable({
   providedIn: 'root'
@@ -80,7 +81,11 @@ export class MoviesService {
   }
 
   getRecommendedMovies(id: string) {
-    return this.http.get<MovieRecommendations>(`${this.baseUrl}/movie/${id}/recommendations?api_key=${this.apiKey}`);
+    return this.http.get<MovieRecommendations>(`${this.baseUrl}/movie/${id}/recommendations?api_key=${this.apiKey}`)
+      .pipe(switchMap((res) => {
+          return of(res.results);
+        })
+      );
   }
 
   getSimilarMovies(id: string) {
@@ -89,6 +94,15 @@ export class MoviesService {
         return of(res.results);
         })
       );
+
+  }
+
+  getMovieReviews(id: string) {
+    return this.http.get<MovieReviews>(`${this.baseUrl}/movie/${id}/reviews?api_key=${this.apiKey}`)
+      .pipe(switchMap((res) => {
+        return of(res.results)
+      })
+    );
   }
 
 
