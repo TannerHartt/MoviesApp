@@ -7,6 +7,7 @@ import { TabViewModule } from 'primeng/tabview'
 import { PaginatorModule } from "primeng/paginator";
 import { CarouselModule } from "primeng/carousel";
 import { ImageModule } from "primeng/image";
+import { InputTextModule } from 'primeng/inputtext';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -63,7 +64,8 @@ const routes: Routes = [
     PaginatorModule,
     TabViewModule,
     ImageModule,
-    CarouselModule
+    CarouselModule,
+    InputTextModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
