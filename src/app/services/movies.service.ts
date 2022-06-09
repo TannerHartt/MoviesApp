@@ -80,7 +80,11 @@ export class MoviesService {
   }
 
   getRecommendedMovies(id: string) {
-    return this.http.get<MovieRecommendations>(`${this.baseUrl}/movie/${id}/recommendations?api_key=${this.apiKey}`);
+    return this.http.get<MovieRecommendations>(`${this.baseUrl}/movie/${id}/recommendations?api_key=${this.apiKey}`)
+      .pipe(switchMap((res) => {
+          return of(res.results);
+        })
+      );
   }
 
   getSimilarMovies(id: string) {
