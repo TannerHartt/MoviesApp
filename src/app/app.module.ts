@@ -33,7 +33,7 @@ const routes: Routes = [
   { path: 'genres', component: GenresComponent },
   { path: 'movie/:id', component: MovieComponent },
   { path: 'tv-show/:id', component: TvShowComponent },
-  { path: 'movies/genres/:genreId,', component: MoviesComponent },
+  { path: 'movies/genres/:genreId', component: MoviesComponent },
 
 
   // Always keep this route last! It controls any incorrect url inputs and redirects them to the Home Page.
