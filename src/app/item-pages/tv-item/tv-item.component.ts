@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TvShow, TvShowDto} from "../../models/movie";
-import {IMAGES_SIZES} from "../../constants/images-sizes";
+import {TvShow, TvShowDto} from "../../../models/movie";
+import {IMAGES_SIZES} from "../../../constants/images-sizes";
 
 @Component({
   selector: 'app-tv-item',

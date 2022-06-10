@@ -11,18 +11,18 @@ import { InputTextModule } from 'primeng/inputtext';
 import {PanelModule} from 'primeng/panel';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { MoviesComponent } from './movies/movies.component';
-import { TvShowsComponent } from './tv-shows/tv-shows.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { MoviesComponent } from './pages/movies/movies.component';
+import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
 import { GenresComponent } from "./pages/genres/genres.component";
 import { SliderComponent } from './sliders/slider/slider.component';
-import { ItemsBannerComponent } from './items-banner/items-banner.component';
-import { ItemComponent } from './item/item.component';
+import { ItemsBannerComponent } from './item-pages/items-banner/items-banner.component';
+import { ItemComponent } from './item-pages/item/item.component';
 import { MovieComponent } from './pages/movie/movie.component';
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
-import { TvItemComponent } from './tv-item/tv-item.component';
+import { TvItemComponent } from './item-pages/tv-item/tv-item.component';
 import { TvShowComponent } from './pages/tv-show/tv-show.component';
 import { TvSliderComponent } from './sliders/tv-slider/tv-slider.component';
 

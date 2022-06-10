@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {TvShow, TvShowDto} from "../../models/movie";
-import {TvService} from "../services/tv.service";
+import {TvShow, TvShowDto} from "../../../models/movie";
+import {TvService} from "../../services/tv.service";
 
 @Component({
   selector: 'app-tv-shows',
