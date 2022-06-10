@@ -8,7 +8,6 @@ import { PaginatorModule } from "primeng/paginator";
 import { CarouselModule } from "primeng/carousel";
 import { ImageModule } from "primeng/image";
 import { InputTextModule } from 'primeng/inputtext';
-import {PanelModule} from 'primeng/panel';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -69,7 +68,6 @@ const routes: Routes = [
     ImageModule,
     CarouselModule,
     InputTextModule,
-    PanelModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
