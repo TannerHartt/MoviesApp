@@ -13,10 +13,13 @@
 
   .navbar-logo {
     display: block;
+
    }
 
   img {
     width: 60px;
+    margin-top: 5px;
+    margin-left: 10px;
   }
   .navbar-links {
     display: block;
