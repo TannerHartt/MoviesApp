@@ -10,6 +10,7 @@ import {IMAGES_SIZES} from "../../constants/images-sizes";
 export class TvItemComponent implements OnInit {
 
   @Input() tvData: TvShow | null = null;
+  @Input() tvRecs: TvShowDto | null = null;
   imagesSizes = IMAGES_SIZES;
 
   constructor() { }

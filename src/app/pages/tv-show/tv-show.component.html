@@ -1,5 +1,5 @@
 <ng-container *ngIf="show">
-  <app-slider [tvItems]="[show]" [isBanner]="true"></app-slider>
+  <app-tv-slider [tvItems]="[show]"></app-tv-slider>
   <p-tabView>
     <p-tabPanel header="Overview">
       <div class="grid">
@@ -65,10 +65,8 @@
 
     <p-tabPanel header="Recommendations">
       <div class="grid">
-        <ng-container *ngFor="let showRecs of recommendations">
-          <div class="col-12 md:col-4 lg:col-4" >
-            <app-tv-item [tvData] = "showRecs"></app-tv-item>
-          </div>
+        <ng-container>
+            <app-items-banner [tvItems]= "recommendations"></app-items-banner>
         </ng-container>
       </div>
     </p-tabPanel>
