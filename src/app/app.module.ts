@@ -8,6 +8,7 @@ import { PaginatorModule } from "primeng/paginator";
 import { CarouselModule } from "primeng/carousel";
 import { ImageModule } from "primeng/image";
 import { InputTextModule } from 'primeng/inputtext';
+import {PanelModule} from 'primeng/panel';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -16,13 +17,14 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MoviesComponent } from './movies/movies.component';
 import { TvShowsComponent } from './tv-shows/tv-shows.component';
 import { GenresComponent } from "./pages/genres/genres.component";
-import { SliderComponent } from './slider/slider.component';
+import { SliderComponent } from './sliders/slider/slider.component';
 import { ItemsBannerComponent } from './items-banner/items-banner.component';
 import { ItemComponent } from './item/item.component';
 import { MovieComponent } from './pages/movie/movie.component';
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
 import { TvItemComponent } from './tv-item/tv-item.component';
 import { TvShowComponent } from './pages/tv-show/tv-show.component';
+import { TvSliderComponent } from './sliders/tv-slider/tv-slider.component';
 
 
 
@@ -32,7 +34,7 @@ const routes: Routes = [
   { path: 'tvshows', component: TvShowsComponent },
   { path: 'genres', component: GenresComponent },
   { path: 'movie/:id', component: MovieComponent },
-  { path: 'tv-show/:id', component: TvShowComponent },
+  { path: 'tvshow/:id', component: TvShowComponent },
   { path: 'movies/genres/:genreId', component: MoviesComponent },
 
 
@@ -54,7 +56,8 @@ const routes: Routes = [
     MovieComponent,
     VideoPlayerComponent,
     TvItemComponent,
-    TvShowComponent
+    TvShowComponent,
+    TvSliderComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,8 @@ const routes: Routes = [
     TabViewModule,
     ImageModule,
     CarouselModule,
-    InputTextModule
+    InputTextModule,
+    PanelModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
