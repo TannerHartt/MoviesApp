@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {Movie, TvShow} from "../../models/movie";
+import {Movie, TvShow} from "../../../models/movie";
 import { animate, state, style, transition, trigger } from "@angular/animations";
-import { IMAGES_SIZES } from "../../constants/images-sizes";
+import { IMAGES_SIZES } from "../../../constants/images-sizes";
 
 @Component({
   selector: 'app-slider',
@@ -18,7 +18,6 @@ import { IMAGES_SIZES } from "../../constants/images-sizes";
 export class SliderComponent implements OnInit {
 
   @Input() items: Movie[] = [];
-  @Input() tvItems: TvShow[] =[];
   @Input() isBanner: boolean = false;
   currentSlideIndex: number = 0;
   readonly imagesSize = IMAGES_SIZES;
