@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>{{title}}</h2>
+  <div class="grid">
+    <ng-container *ngIf="items">
+      <div class="col-6 md:col-3 lg:col-2" *ngFor="let item of items">
+          <app-item [itemData] = "item"></app-item>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="tvItems">
+      <div class="col-6 md:col-3 lg:col-2" *ngFor="let item of tvItems">
+        <app-tv-item [tvData] = "item"></app-tv-item>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="tvRecommends">
+      <div class="col-6 md:col-3 lg:col-2" *ngFor="let item of tvRecommends">
+        <app-tv-item [tvRecs] = "item"></app-tv-item>
+      </div>
+    </ng-container>
+  </div>
+</div>

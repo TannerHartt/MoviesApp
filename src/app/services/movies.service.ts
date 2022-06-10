@@ -101,7 +101,7 @@ export class MoviesService {
   getMovieReviews(id: string) {
     return this.http.get<MovieReviews>(`${this.baseUrl}/movie/${id}/reviews?api_key=${this.apiKey}`)
       .pipe(switchMap((res) => {
-        return of(res.results)
+        return of(res.results);
       })
     );
   }
