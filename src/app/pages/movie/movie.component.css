@@ -11,6 +11,41 @@
     background: var(--bgColor);
 }
 
+.reviewImage {
+  position: absolute;
+  height: 71.6%;
+  display: flex;
+}
+#card {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  border: 1px solid var(--primaryColor);
+  border-radius: 5px;
+  width: 70%;
+  position: relative;
+  left: 30%;
+  margin-bottom: 2rem;
+}
+
+.content {
+  text-overflow: ellipsis;
+  position: relative;
+  display: block;
+  margin: 1.5rem;
+}
+.date {
+  position: relative;
+  font-size: 10px;
+  margin-left: 1.5rem;
+}
+
+.author {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  margin-left: 1.5rem;
+}
+
+
 
 .poster {
   width: 100%;
