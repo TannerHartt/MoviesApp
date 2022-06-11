@@ -37,10 +37,6 @@ export class TvShowComponent implements OnInit {
   }
   // TODO
   // Add support for clicking on a tv show and seeing more details about it.
-  // Create methods in service to fetch the show data and
-  // Methods to pull data from service to display on screen.
-  // Style tv show screen better
-
   getRecommendations(id: string) {
     this.tvService.getShowRecommendations(id).subscribe((data) => {
       this.recommendations = data;

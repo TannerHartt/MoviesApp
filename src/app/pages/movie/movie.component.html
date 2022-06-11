@@ -69,7 +69,7 @@
       </div>
     </p-tabPanel>
 
-    <p-tabPanel header="Recommended Movies">
+    <p-tabPanel header="Recommended Movies" #item>
       <div class="grid">
         <ng-container>
           <app-items-banner [items]="recommendedMovies"></app-items-banner>
@@ -78,11 +78,14 @@
     </p-tabPanel>
 
     <p-tabPanel header="Reviews">
-      <div class="grid">
-          <div class="author">
-            <span>Author: Tanner</span>
+        <img class="reviewImage" [src]="imagesSize.medium + movie.poster_path" [alt]="movie.title">
+        <ng-container *ngFor="let review of movieReviews">
+          <div class="col-12 md:col-9 lg:col-9" id="card">
+            <h2 class="author">{{ review.author }} says,</h2>
+            <span class="date">Written on: {{ review.created_at | date: 'MMMM dd, yyyy'}}</span>
+            <p class="content">{{ review.content }}</p>
           </div>
-      </div>
+        </ng-container>
     </p-tabPanel>
 
   </p-tabView>
