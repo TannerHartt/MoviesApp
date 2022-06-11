@@ -8,6 +8,9 @@ import { PaginatorModule } from "primeng/paginator";
 import { CarouselModule } from "primeng/carousel";
 import { ImageModule } from "primeng/image";
 import { InputTextModule } from 'primeng/inputtext';
+import {ScrollTopModule} from 'primeng/scrolltop';
+import {DialogModule} from 'primeng/dialog';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -24,6 +27,7 @@ import { VideoPlayerComponent } from './components/video-player/video-player.com
 import { TvItemComponent } from './item-pages/tv-item/tv-item.component';
 import { TvShowComponent } from './pages/tv-show/tv-show.component';
 import { TvSliderComponent } from './sliders/tv-slider/tv-slider.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
 
 
 
@@ -56,7 +60,8 @@ const routes: Routes = [
     VideoPlayerComponent,
     TvItemComponent,
     TvShowComponent,
-    TvSliderComponent
+    TvSliderComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +73,8 @@ const routes: Routes = [
     ImageModule,
     CarouselModule,
     InputTextModule,
+    ScrollTopModule,
+    DialogModule,
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

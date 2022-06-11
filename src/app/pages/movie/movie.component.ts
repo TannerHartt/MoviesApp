@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { MoviesService } from "../../services/movies.service";
 import {
@@ -6,9 +6,8 @@ import {
   MovieImages,
   MovieVideo,
   MovieCredits,
-  MovieReviews,
   ReviewsDto,
-  MovieRecommendations
+  AuthorDto
 } from "../../../models/movie";
 import { IMAGES_SIZES } from "../../../constants/images-sizes";
 import {first} from "rxjs";
@@ -29,6 +28,7 @@ export class MovieComponent implements OnInit, OnDestroy {
   similarMovies: Movie[] = [];
   movieReviews: ReviewsDto[] = [];
   recommendedMovies: Movie[] = [];
+  authorDetails: AuthorDto[] = [];
 
 
 
@@ -43,6 +43,7 @@ export class MovieComponent implements OnInit, OnDestroy {
       this.getSimilarMovie(id);
       this.getMovieReviews(id);
       this.getRecommendedMovies(id);
+      this.getReviewAuthorDetails(id);
     });
   }
 
@@ -80,13 +81,20 @@ export class MovieComponent implements OnInit, OnDestroy {
     });
   }
 
-  // TODO
-  // Create a way to display the reviews in the details tab menu.
   getMovieReviews(id: string) {
     this.moviesService.getMovieReviews(id).subscribe((reviews) => {
       this.movieReviews = reviews;
-      console.log(reviews)
     });
+  }
+
+  // TODO
+  // get author details information from api in proper format and display
+  // rating, name, and profile pic
+  getReviewAuthorDetails(id: string) {
+    this.moviesService.getReviewAuthorDetails(id).subscribe((author) => {
+      this.authorDetails = author;
+      console.log(author);
+    })
   }
 
   getRecommendedMovies(id: string) {
