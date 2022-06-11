@@ -27,7 +27,6 @@ export class HomePageComponent implements OnInit {
       this.getNowPlayingMovies();
   }
 
-
   getPopularMovies() {
     this.moviesService.getMovies('popular').subscribe((movies) => {
       this.popularMovies = movies;
