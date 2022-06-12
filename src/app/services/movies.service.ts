@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import {
-  AuthorDto,
   Movie,
   MovieCredits,
   MovieDto,
@@ -23,6 +22,7 @@ export class MoviesService {
 
   constructor(private http: HttpClient) { }
 
+  // Function used to pull additional data about each movie.
   getMovieDetails(id: string) {
     return this.http.get<Movie>(`${this.baseUrl}/movie/${id}?api_key=${this.apiKey}`);
   }
