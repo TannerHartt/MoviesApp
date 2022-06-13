@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { of, switchMap } from "rxjs";
 import {
+  MovieReviews,
   TvImages,
   TvShow,
   TvShowDto
@@ -44,6 +45,14 @@ export class TvService {
     return this.http.get<TvShowDto>(`${this.baseUrl}/tv/${id}/recommendations?api_key=${this.apiKey}`)
       .pipe(switchMap(res => {
         return of(res.results);
+      })
+    );
+  }
+
+  getTvShowReviews(id: string) {
+    return this.http.get<MovieReviews>(`${this.baseUrl}/tv/${id}/reviews?api_key=${this.apiKey}`)
+      .pipe(switchMap(resp => {
+        return of(resp.results);
       })
     );
   }
