@@ -10,7 +10,7 @@ import {
   AuthorDto
 } from "../../../models/movie";
 import { IMAGES_SIZES } from "../../../constants/images-sizes";
-import {first} from "rxjs";
+import {first, of} from "rxjs";
 
 
 @Component({
@@ -29,6 +29,7 @@ export class MovieComponent implements OnInit, OnDestroy {
   movieReviews: ReviewsDto[] = [];
   recommendedMovies: Movie[] = [];
   authorDetails: AuthorDto[] = [];
+  author: AuthorDto | null = null;
 
   constructor(private route: ActivatedRoute, private moviesService: MoviesService) { }
 
@@ -95,7 +96,7 @@ export class MovieComponent implements OnInit, OnDestroy {
    */
   getSimilarMovie(id: string) {
     this.moviesService.getSimilarMovies(id).subscribe((movieData) => {
-      this.similarMovies = movieData
+      this.similarMovies = movieData;
     });
   }
 
@@ -106,6 +107,7 @@ export class MovieComponent implements OnInit, OnDestroy {
   getMovieReviews(id: string) {
     this.moviesService.getMovieReviews(id).subscribe((reviews) => {
       this.movieReviews = reviews;
+      console.log(reviews);
     });
   }
 
@@ -115,7 +117,6 @@ export class MovieComponent implements OnInit, OnDestroy {
   getReviewAuthorDetails(id: string) {
     this.moviesService.getReviewAuthorDetails(id).subscribe((author) => {
       this.authorDetails = author;
-      console.log(author);
     });
   }
 

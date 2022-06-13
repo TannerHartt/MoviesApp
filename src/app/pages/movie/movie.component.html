@@ -41,6 +41,17 @@
       </div>
     </p-tabPanel>
 
+    <p-tabPanel header="Cast">
+      <p-carousel *ngIf="movieCredits" [value]="movieCredits.cast" [numVisible]="5">
+        <ng-template let-actor pTemplate="item">
+          <div class="actor">
+            <img *ngIf="actor.profile_path" [src]="imagesSize.medium + actor.profile_path" [alt]="actor.name">
+            <span>{{actor.name}}</span>
+          </div>
+        </ng-template>
+      </p-carousel>
+    </p-tabPanel>
+
     <p-tabPanel header="Videos">
       <div class="grid">
         <ng-container *ngFor="let movieVideo of movieVideos">
@@ -88,15 +99,8 @@
         </ng-container>
     </p-tabPanel>
 
-  </p-tabView>
 
-  <p-carousel *ngIf="movieCredits" [value]="movieCredits.cast" [numVisible]="5">
-    <ng-template let-actor pTemplate="item">
-       <div class="actor">
-         <img *ngIf="actor.profile_path" [src]="imagesSize.medium + actor.profile_path" [alt]="actor.name">
-         <span>{{actor.name}}</span>
-       </div>
-    </ng-template>
-  </p-carousel>
+  </p-tabView>
+  <p-scrollTop></p-scrollTop>
 
 </ng-container>
