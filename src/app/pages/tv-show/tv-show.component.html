@@ -70,6 +70,19 @@
         </ng-container>
       </div>
     </p-tabPanel>
+
+    <p-tabPanel header="Reviews">
+      <img class="reviewImage" [src]="imagesSize.medium + show.poster_path" [alt]="show.name">
+      <ng-container *ngFor="let review of tvReviews">
+        <div class="col-12 md:col-9 lg:col-9" id="card">
+          <h2 class="author">{{ review.author }} says,</h2>
+          <span class="date">Written on: {{ review.created_at | date: 'MMMM dd, yyyy'}}</span>
+          <p class="content">{{ review.content }}</p>
+        </div>
+      </ng-container>
+    </p-tabPanel>
+
+    <p-scrollTop></p-scrollTop>
   </p-tabView>
 
 <!--  <p-carousel *ngIf="movieCredits" [value]="movieCredits.cast" [numVisible]="5">-->

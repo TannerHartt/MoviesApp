@@ -28,12 +28,18 @@ export class MoviesComponent implements OnInit {
     });
   }
 
+  // Function used to track if the search bar value is updated and update the variable storing it accordingly.
   searchChanged() {
     if(this.searchValue) {
       this.getMoviePage(1, this.searchValue);
     }
   }
-  // Method used to pull all the movies in the movies tab from the movie service.
+
+  /**
+   * Function used to pull all the movies in the movies tab from the movie service.
+   * @param page Page number of movies to grab from the api.
+   * @param searchKeyword The value the user types into the search bar to grab movies that contain it in the title.
+   */
   getMoviePage(page: number, searchKeyword?: string) {
     this.moviesService.searchMovies(page, searchKeyword).subscribe(movies => {
       this.movies = movies;
@@ -58,6 +64,11 @@ export class MoviesComponent implements OnInit {
     }
   }
 
+  /**
+   * Function that grabs the movies that fall under the desired genre.
+   * @param genreId The id of the genre user is sorted by.
+   * @param page The page number of the movies in the desired genre.
+   */
   getMoviesByGenres(genreId: string, page: number) {
     this.moviesService.getMoviesByGenre(genreId, page).subscribe((movies) => {
       this.movies = movies;

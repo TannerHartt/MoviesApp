@@ -27,7 +27,6 @@ import { VideoPlayerComponent } from './components/video-player/video-player.com
 import { TvItemComponent } from './item-pages/tv-item/tv-item.component';
 import { TvShowComponent } from './pages/tv-show/tv-show.component';
 import { TvSliderComponent } from './sliders/tv-slider/tv-slider.component';
-import { ReviewsComponent } from './components/reviews/reviews.component';
 
 
 
@@ -61,7 +60,6 @@ const routes: Routes = [
     TvItemComponent,
     TvShowComponent,
     TvSliderComponent,
-    ReviewsComponent
   ],
   imports: [
     BrowserModule,

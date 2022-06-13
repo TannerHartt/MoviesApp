@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TvImages, TvShow, TvShowDto} from "../../../models/movie";
+import {MovieReviews, ReviewsDto, TvImages, TvShow, TvShowDto} from "../../../models/movie";
 import { IMAGES_SIZES } from "../../../constants/images-sizes";
 import { ActivatedRoute } from "@angular/router";
 import { TvService } from "../../services/tv.service";
@@ -17,6 +17,7 @@ export class TvShowComponent implements OnInit {
   imagesSize = IMAGES_SIZES;
   recommendations: TvShow[] = [];
   similarShows: TvShow[] = [];
+  tvReviews: ReviewsDto[] = [];
 
   constructor(private route: ActivatedRoute, private tvService: TvService) { }
 
@@ -26,6 +27,7 @@ export class TvShowComponent implements OnInit {
       this.getImages(id);
       this.getRecommendations(id);
       this.getSimilarShows(id);
+      this.getTvReviews(id);
     });
   }
 
@@ -35,8 +37,7 @@ export class TvShowComponent implements OnInit {
       this.show = showData;
     });
   }
-  // TODO
-  // Add support for clicking on a tv show and seeing more details about it.
+
   getRecommendations(id: string) {
     this.tvService.getShowRecommendations(id).subscribe((data) => {
       this.recommendations = data;
@@ -52,6 +53,13 @@ export class TvShowComponent implements OnInit {
   getSimilarShows(id: string) {
     this.tvService.getSimilarShows(id).subscribe((shows) => {
       this.similarShows = shows;
+    });
+  }
+
+  getTvReviews(id: string) {
+    this.tvService.getTvShowReviews(id).subscribe(review => {
+      this.tvReviews = review;
+      console.log(review)
     });
   }
 }
