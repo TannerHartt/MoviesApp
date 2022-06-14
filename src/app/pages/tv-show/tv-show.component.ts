@@ -3,6 +3,7 @@ import {MovieReviews, ReviewsDto, TvImages, TvShow, TvShowDto} from "../../../mo
 import { IMAGES_SIZES } from "../../../constants/images-sizes";
 import { ActivatedRoute } from "@angular/router";
 import { TvService } from "../../services/tv.service";
+import {TvVideo, TvVideoDto} from "../../../models/tv";
 
 
 @Component({
@@ -18,6 +19,7 @@ export class TvShowComponent implements OnInit {
   recommendations: TvShow[] = [];
   similarShows: TvShow[] = [];
   tvReviews: ReviewsDto[] = [];
+  tvVideos: TvVideoDto[] = [];
 
   constructor(private route: ActivatedRoute, private tvService: TvService) { }
 
@@ -28,6 +30,7 @@ export class TvShowComponent implements OnInit {
       this.getRecommendations(id);
       this.getSimilarShows(id);
       this.getTvReviews(id);
+      this.getTvVideos(id);
     });
   }
 
@@ -59,7 +62,12 @@ export class TvShowComponent implements OnInit {
   getTvReviews(id: string) {
     this.tvService.getTvShowReviews(id).subscribe(review => {
       this.tvReviews = review;
-      console.log(review)
+    });
+  }
+
+  getTvVideos(id: string) {
+    this.tvService.getTvVideos(id).subscribe(videos => {
+      this.tvVideos = videos;
     });
   }
 }

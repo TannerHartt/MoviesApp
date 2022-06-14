@@ -45,6 +45,16 @@
       </div>
     </p-tabPanel>
 
+    <p-tabPanel header="Videos">
+      <div class="grid">
+        <ng-container *ngFor="let video of tvVideos">
+          <div class="col-12 md:col-4 lg:col-4" >
+            <app-video-player [key]="video.key" [site]="video.site"></app-video-player>
+          </div>
+        </ng-container>
+      </div>
+    </p-tabPanel>
+
     <p-tabPanel header="Photos">
       <div class="grid">
         <ng-container *ngFor="let image of images?.backdrops">
