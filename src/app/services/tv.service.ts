@@ -7,6 +7,7 @@ import {
   TvShow,
   TvShowDto
 } from "../../models/movie";
+import {TvVideo, TvVideoDto} from "../../models/tv";
 
 @Injectable({
   providedIn: 'root'
@@ -56,4 +57,14 @@ export class TvService {
       })
     );
   }
+
+  getTvVideos(id: string) {
+    return this.http.get<TvVideo>(`${this.baseUrl}/tv/${id}/videos?api_key=${this.apiKey}`)
+      .pipe(switchMap(res => {
+        return of(res.results);
+      })
+    );
+  }
+
+
 }

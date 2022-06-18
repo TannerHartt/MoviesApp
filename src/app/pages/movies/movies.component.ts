@@ -43,7 +43,7 @@ export class MoviesComponent implements OnInit {
   getMoviePage(page: number, searchKeyword?: string) {
     this.moviesService.searchMovies(page, searchKeyword).subscribe(movies => {
       this.movies = movies;
-    })
+    });
   }
 
   /**

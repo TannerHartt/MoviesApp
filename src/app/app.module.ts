@@ -8,8 +8,8 @@ import { PaginatorModule } from "primeng/paginator";
 import { CarouselModule } from "primeng/carousel";
 import { ImageModule } from "primeng/image";
 import { InputTextModule } from 'primeng/inputtext';
-import {ScrollTopModule} from 'primeng/scrolltop';
-import {DialogModule} from 'primeng/dialog';
+import { ScrollTopModule } from 'primeng/scrolltop';
+import { DialogModule } from 'primeng/dialog';
 
 
 import { AppComponent } from './app.component';

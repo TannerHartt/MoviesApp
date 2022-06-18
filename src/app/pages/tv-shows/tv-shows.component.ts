@@ -22,7 +22,6 @@ export class TvShowsComponent implements OnInit {
   getPopularTvShows(page:number = 1) {
     this.tvService.getTvShows(page).subscribe((shows) => {
       this.shows = shows;
-      console.log(shows);
     });
   }
 
