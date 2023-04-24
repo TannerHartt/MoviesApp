@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
 import {
   Movie,
   MovieCredits,
@@ -7,9 +7,9 @@ import {
   MovieImages,
   MovieRecommendations, MovieReviews,
   MovieVideoDto, ReviewsDto,
-} from "../../models/movie";
-import { switchMap, of } from "rxjs";
-import { GenresDto } from "../../models/genre";
+} from '../../models/movie';
+import { switchMap, of } from 'rxjs';
+import { GenresDto } from '../../models/genre';
 
 
 @Injectable({
@@ -17,8 +17,8 @@ import { GenresDto } from "../../models/genre";
 })
 export class MoviesService {
 
-  baseUrl: string = "https://api.themoviedb.org/3"
-  apiKey: string = "7db05de00ae8c105292603bb77981acc"
+  baseUrl: string = 'https://api.themoviedb.org/3';
+  apiKey: string = '7db05de00ae8c105292603bb77981acc';
 
   constructor(private http: HttpClient) { }
 
@@ -27,7 +27,7 @@ export class MoviesService {
     return this.http.get<Movie>(`${this.baseUrl}/movie/${id}?api_key=${this.apiKey}`);
   }
 
-  // Method used to get the movies in the "Home" tab from TMDB API.
+  // Method used to get the movies in the 'Home' tab from TMDB API.
   getMovies(type: string = '', count: number = 12) {
     return this.http.get<MovieDto>(`${this.baseUrl}/movie/${type}?api_key=${this.apiKey}`)
       .pipe(switchMap(res => {
@@ -36,7 +36,7 @@ export class MoviesService {
     );
   }
 
-  // Method used to get the movies in the "Movies" tab from the movie database API.
+  // Method used to get the movies in the 'Movies' tab from the movie database API.
   searchMovies(page: number, searchValue?: string) {
     const uri = searchValue ? '/search/movie' : '/movie/popular';
     return this.http.get<MovieDto>(`${this.baseUrl}${uri}?page=${page}&query=${searchValue}&api_key=${this.apiKey}`)
