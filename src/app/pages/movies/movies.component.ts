@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService } from "../../services/movies.service";
-import { Movie } from "../../../models/movie";
-import { ActivatedRoute } from "@angular/router";
-import { take } from "rxjs";
+import { MoviesService } from '../../services/movies.service';
+import { Movie } from '../../../models/movie';
+import { ActivatedRoute } from '@angular/router';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-movies',
