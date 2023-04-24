@@ -16,6 +16,8 @@ export class VideoPlayerComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
+    this.videoUrl = this.getSafeUrl('https://www.youtube.com/embed/' + this.key);
+
     switch (this.site) {
       case 'Youtube':
         this.videoUrl = this.getSafeUrl('https://www.youtube.com/embed/' + this.key);
