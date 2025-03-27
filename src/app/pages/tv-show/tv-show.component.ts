@@ -70,4 +70,6 @@ export class TvShowComponent implements OnInit {
       this.tvVideos = videos;
     });
   }
+
+  // TODO get cast and crew for tc shows and display them in a tab.
 }
